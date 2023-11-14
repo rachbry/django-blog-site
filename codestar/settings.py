@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-a=^c=17*#5vo)p$==yu3*zy5csm+v5xt0eb=b3-8n4$ge(@(%j
 DEBUG = False
 
 ALLOWED_HOSTS = ['8000-rachbry-djangoblogsite-sq14rhgj9ux.ws-eu106.gitpod.io',
-'rachels-codestar-blog-9ca1e123cceb.herokuapp.com']
+'.herokuapp.com']
 
 
 
