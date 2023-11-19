@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Post
 
+
 # Create your views here.
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
@@ -22,11 +23,15 @@ def post_detail(request, slug):
     :template:`blog/post_detail.html`
     """
 
+# status 1 here means only published posts are shown
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
+
 
     return render(
         request,
         "blog/post_detail.html",
         {"post": post},
     )
+
+
