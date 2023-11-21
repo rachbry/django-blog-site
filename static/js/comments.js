@@ -18,17 +18,36 @@ const deleteConfirm = document.getElementById("deleteConfirm");
  * - Sets the form's action attribute to the `edit_comment/{commentId}` endpoint.
  */
 
+// for (let button of editButtons) {
+//     button.addEventListener("click", (e) => {
+//         let commentId = e.target.getAttribute("data-comment_id");
+//         // switched these 2 around
+//         commentText.value = commentContent;
+//         let commentContent = document.getElementById(`comment${commentId}`).innerText;
+        
+//         submitButton.innerText = "Update";
+//         commentForm.setAttribute("action", `edit_comment/${commentId}`);
+//     });
+// }
+
 for (let button of editButtons) {
     button.addEventListener("click", (e) => {
-        let commentId = e.target.getAttribute("data-comment_id");
-        // switched these 2 around
-        commentText.value = commentContent;
-        let commentContent = document.getElementById(`comment${commentId}`).innerText;
-        
-        submitButton.innerText = "Update";
-        commentForm.setAttribute("action", `edit_comment/${commentId}`);
+    let commentId = e.target.getAttribute("comment_id");
+    console.log('Comment ID:', commentId); // Log the commentId value
+    let commentElement = document.getElementById(comment${commentId});
+    if (commentElement) {
+    let commentContent = commentElement.innerText;
+    console.log('Comment Content:', commentContent); // Log the commentContent
+    commentText.value = commentContent;
+    submitButton.innerText = "Update";
+    commentForm.setAttribute("action", edit_comment/${commentId});
+    } else {
+    console.error(Element with ID 'comment${commentId}' not found.);
+    }
     });
-}
+    }
+
+
 
 /*
  * Initializes deletion functionality for the provided delete buttons.
