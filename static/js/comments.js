@@ -9,7 +9,7 @@ const deleteConfirm = document.getElementById("deleteConfirm");
 
 /*
  * Initializes edit functionality for the provided edit buttons.
- * 
+ *
  * For each button in the `editButtons` collection:
  * - Retrieves the associated comment's ID upon click.
  * - Fetches the content of the corresponding comment.
@@ -21,8 +21,10 @@ const deleteConfirm = document.getElementById("deleteConfirm");
 for (let button of editButtons) {
     button.addEventListener("click", (e) => {
         let commentId = e.target.getAttribute("data-comment_id");
-        let commentContent = document.getElementById(`comment${commentId}`).innerText;
+        // switched these 2 around
         commentText.value = commentContent;
+        let commentContent = document.getElementById(`comment${commentId}`).innerText;
+        
         submitButton.innerText = "Update";
         commentForm.setAttribute("action", `edit_comment/${commentId}`);
     });
@@ -33,9 +35,9 @@ for (let button of editButtons) {
  * 
  * For each button in the `deleteButtons` collection:
  * - Retrieves the associated comment's ID upon click.
- * - Updates the `deleteConfirm` link's href to point to the 
+ * - Updates the `deleteConfirm` link's href to point to the
  * deletion endpoint for the specific comment.
- * - Displays a confirmation modal (`deleteModal`) to prompt 
+ * - Displays a confirmation modal (`deleteModal`) to prompt
  * the user for confirmation before deletion.
  */
  for (let button of deleteButtons) {
